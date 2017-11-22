@@ -39,18 +39,17 @@ public class Location {
         Scanner in = new Scanner(file);
         
         
-        //get the number of Addresses
+        //get the number of locations in the info file
         int numLocations = in.nextInt();
         
         //move to the next line
         in.nextLine();
         //create an empty roladex
         loc[] locations = new loc[numLocations];
-        //start to fill the location array with locations and their 
-        //
+        //start to fill the location array with locations and their respective directions, imgs etc.
         for(int i = 0; i < numLocations; i++){
-            String name = in.next();
-            String phone = in.next();
+            String location = in.next();
+            String n = in.next();
             String email = in.nextLine().trim();
             //create the location
             Contact c = new Contact(name);

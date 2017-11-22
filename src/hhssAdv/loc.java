@@ -10,7 +10,10 @@ package hhssAdv;
  */
 public class loc {
     private String loc;
-    private String dir;
+    private String n;
+    private String e;
+    private String s;
+    private String w;
     private String image;
     private boolean isWall;
     private String newLoc;
@@ -21,17 +24,31 @@ public class loc {
         this.loc = loc;
     }
     
-    public void setDir(String dir){
-        this.dir = dir;
+    public void setN(String n){
+        this.n = n;
+    }
+    
+    public void setE(String e){
+        this.e = e;
+    }
+    
+    public void setS(String s){
+        this.s = s;
+    }
+    
+    public void setW(String w){
+        this.w = w;
     }
     
     public void setImage(String img){
         this.image = img;
     }
     
-    public boolean isWall(String dir){
-        this.dir = dir;
+    public boolean isWall(){
+        return isWall;
     }
+    
+    
 
     
     @Override
