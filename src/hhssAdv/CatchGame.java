@@ -1,35 +1,36 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package hhssAdv;
-
 
 import java.io.FileReader;
 import java.net.URL;
 import java.util.Scanner;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author slatz8075
+ * @author ja2slate
  */
-public class KeepThisBecause {
+public class CatchGame {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //INITILIZATION
+
         //create a blank file
         FileReader file = null;
         //try to find the info file
-        try{
+        try {
             //create a url for the location of the info file
-            URL url = KeepThisBecause.class.getResource("info.txt");
+            URL url = CatchGame.class.getResource("info.txt");
             System.out.println(url);
             // creating the file reader
             file = new FileReader(url.getFile());
-        }catch(Exception e){
+        } catch (Exception e) {
             //handle any errors
             e.printStackTrace();
             //exit the program
@@ -37,17 +38,24 @@ public class KeepThisBecause {
         }
         //use a Scanner with the file
         Scanner in = new Scanner(file);
-        
-        
-        //get the number of locations in the info file
-        int numLocations = in.nextInt();
-        
-        //move to the next line
-        in.nextLine();
-        //create an empty roladex
-        Location[] locations = new Location[numLocations];
-        //start to fill the location array with locations and their respective directions, imgs etc.
-        for(int i = 0; i < numLocations; i++){
+
+        //CREATING AN ARRAY OF LOCATIONS
+        //variable for the length of the document
+        int length = 0;  
+        //create a variable for 
+        //move through the text document until we are at the end of the document
+        while (in.hasNext()) {
+            //add one to the length
+            length++;
+        }
+        //create an empty array of locations, that is as long as the number of locations 
+        Location[] locations = new Location[(((length-2)/5)+1)]; 
+        //start to fill the location array with locations, and these locations with scenes
+        for (int i = 0; i < length; i++) {
+            
+            
+            
+            //check 
             String location = in.next();
             String n = in.next();
             String email = in.nextLine().trim();
@@ -58,9 +66,9 @@ public class KeepThisBecause {
             //add contact to list
             contacts[i] = c;
         }
-        
+
         //print out the rolodex
-        for(int i = 0; i < contacts.length; i++){
+        for (int i = 0; i < contacts.length; i++) {
             System.out.println(contacts[i]);
         }
     }
