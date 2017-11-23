@@ -18,6 +18,10 @@ public class Location {
         this.name = name;
     }
     
+    public String getName(){
+        return this.name;
+    }
+    
     public void setScene(int index, Scene scene){
         this.scenes[index] = scene;
     }
@@ -25,7 +29,7 @@ public class Location {
     public Scene getScene(int index){
         return scenes[index];
     }
-    
+    /*
     @Override
     public String toString(){
         String format = this.loc + "\n";
@@ -35,4 +39,5 @@ public class Location {
         
         return format;
     }
+*/
 }
