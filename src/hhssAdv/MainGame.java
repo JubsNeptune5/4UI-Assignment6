@@ -1,21 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package hhssAdv;
-
-/**
- *
- * @author ja2slate
+/** This class creates a game and starts the game play.
  */
 public class MainGame {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String args[]) {
+        CatchGame game = new CatchGame();
+        game.playGame();
     }
-    
+
 }
