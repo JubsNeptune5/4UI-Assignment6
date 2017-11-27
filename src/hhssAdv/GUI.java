@@ -100,8 +100,10 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
-        String file = Scene.getPic();
         
+        BufferedImage t = imageHelper.loadImage("info.txt");
+        
+        jImage1.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed
 
     private void moveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveButtonActionPerformed
