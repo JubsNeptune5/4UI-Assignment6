@@ -14,14 +14,16 @@ import javax.imageio.ImageIO;
  */
 public class imageHelper {
     public static BufferedImage loadImage(String name){
-        BufferedImage img = null;
+        //Set bufferpic
+        BufferedImage pic = null;
         try{
-            img = ImageIO.read(new File(name));
+            //Read image from file if there is any
+            pic = ImageIO.read(new File(name));
         }catch(Exception e){
             e.printStackTrace();
             System.exit(0);
         }
-        return img;
+        return pic;
         
     }
 }
