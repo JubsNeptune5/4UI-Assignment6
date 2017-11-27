@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ja2slate
+ * @author slatz8075
  */
 public class MainGame {
 
@@ -19,7 +19,6 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -30,42 +29,38 @@ public class MainGame {
             System.out.println(url);
             // creating the file reader
             file = new FileReader(url.getFile());
+            System.out.println("success!");
         } catch (Exception e) {
             //handle any errors
             e.printStackTrace();
             //exit the program
             System.exit(0);
+            System.out.println("fail");
         }
         //use a Scanner with the file
         Scanner in = new Scanner(file);
+        System.out.println("Thisfar");
 
-        
-        //INITILIZATION OF SCENES AND LOCATIONS
-        //variable for the length of the document
-        int length = 0;
-        //move through the text document until we are at the end of the document
-        while (in.hasNext()) {
-            in.nextLine();
-            //add one to the length
-            length++;
-        }
-        //reset the scanner 
-        in.reset();
-        //create an empty array of locations, that is as long as the number of locations 
-        Location[] locations = new Location[(((length - 2) / 5) + 1)];
-        System.out.println("blagh");
+        //create a length variable to define how long the array is 100
+        int length = 100;
+        //create an empty array of locations, that is as long as the defined length
+        Location[] locations = new Location[length];
         //start to fill the location array with locations, and these locations with scenes
-        for (int l = 0; l <= length; l++) {
+        for (int l = 0; l < length; l++) {
             
-            System.out.println("locationArray # " + l);
-            
+            System.out.println("Array Position "+ l);
             //create/name a location at this spot
-            locations[l].setName(in.nextLine());
+            System.out.println("Thisfar");
+            String name = in.nextLine();
+            System.out.println("name: " + name);
+            locations[l] = new Location();
+            locations[l].setName(name);
+            
             //using a for loop move through the scene lines
             for (int s = 0; s < 3; s++) {
                 //get this line
-                String sceneLine = in.next();
-                //check to see that this is not a location line (characterized by its second characted not being a space
+                String sceneLine = in.nextLine();
+                //check to see that this is not a location line (characterized by its second character not being a space
                 if (sceneLine.charAt(1) != ' ') {
                     //it is so break out of the for loop
                     break;
@@ -82,7 +77,7 @@ public class MainGame {
                     }else{
                         //so we know that it is false, so set it equal to false
                         boolean isFrontBlocked = false;
-                        //and now we know that the newDir, and newLoc are existant, set them too:
+                        //and now we know that the newDir, and newLoc are existent, set them too:
                         char newDir = sceneLineParts[3].charAt(0);
                         String newLoc = sceneLineParts[4];
                     }
@@ -96,3 +91,4 @@ public class MainGame {
         }
     }
 }
+

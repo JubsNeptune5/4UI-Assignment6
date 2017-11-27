@@ -7,7 +7,7 @@ package hhssAdv;
 
 /**
  *
- * @author ja2slate
+ * @author slatz8075
  */
 public class Scene {
 
