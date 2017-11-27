@@ -17,44 +17,31 @@ public class Scene {
     private char newDir;
     private String newLoc;
     
-    public void setDir(char dir){
+    public Scene(char dir, String Pic, Boolean isFrontBlocked, char newDir, String newLoc){
         this.dir = dir;
+        this.pic = pic;
+        this.isFrontBlocked = isFrontBlocked;
+        this.newDir = newDir;
+        this.newLoc = newLoc;
     }
     
     public char getDir(){
         return this.dir;
     }
     
-    public void setPic(String Pic){
-        this.pic = pic;
-    }
-    
     public String getPic(){
         return this.pic;
-    }
-    
-    public void setIsFrontBlocked(Boolean isFrontBlocked){
-        this.isFrontBlocked = isFrontBlocked;
     }
     
     public boolean getIsFrontBlocked(){
         return isFrontBlocked;
     }
     
-    public void setNewDir(char newDir){
-        this.newDir = newDir;
-    }
-    
     public char getNewDir(){
         return this.newDir;
-    }
-    
-    public void setNewLoc(String newLoc){
-        this.newLoc = newLoc;
     }
     
     public String getNewLoc(){
         return this.newLoc;
     }
-    
 }
