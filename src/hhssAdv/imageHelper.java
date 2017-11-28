@@ -18,7 +18,7 @@ public class imageHelper {
         BufferedImage pic = null;
         try{
             //Read image from file if there is any
-            pic = ImageIO.read(new File(name));
+            pic = ImageIO.read(new File("image//"+name));
         }catch(Exception e){
             e.printStackTrace();
             System.exit(0);

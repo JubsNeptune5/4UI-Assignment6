@@ -33,7 +33,7 @@ public class GUI extends javax.swing.JFrame {
         leftButton = new javax.swing.JButton();
         moveButton = new javax.swing.JButton();
         rightButton = new javax.swing.JButton();
-        jImage1 = new hhssAdv.JImage();
+        image = new hhssAdv.JImage();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -76,7 +76,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(rightButton))
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -87,7 +87,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftButton)
@@ -101,9 +101,9 @@ public class GUI extends javax.swing.JFrame {
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
         
-        BufferedImage t = imageHelper.loadImage("info.txt");
+        BufferedImage t = imageHelper.loadImage("IMG_0045.JPG");
         
-        jImage1.setImage(t);
+        image.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed
 
     private void moveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveButtonActionPerformed
@@ -149,7 +149,7 @@ public class GUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private hhssAdv.JImage jImage1;
+    private hhssAdv.JImage image;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton leftButton;
     private javax.swing.JButton moveButton;
