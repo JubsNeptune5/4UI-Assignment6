@@ -5,6 +5,8 @@
 package hhssAdv;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -101,7 +103,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
         
-        BufferedImage t = imageHelper.loadImage("IMG_0045.JPG");
+        BufferedImage t =loadImage("IMG_0045.JPG");
         
         image.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed
@@ -147,6 +149,21 @@ public class GUI extends javax.swing.JFrame {
                 new GUI().setVisible(true);
             }
         });
+    }
+    
+    
+    public static BufferedImage loadImage(String name){
+        //Set bufferpic
+        BufferedImage pic = null;
+        try{
+            //Read image from file if there is any
+            pic = ImageIO.read(new File("image//"+name));
+        }catch(Exception e){
+            e.printStackTrace();
+            System.exit(0);
+        }
+        return pic;
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private hhssAdv.JImage image;
