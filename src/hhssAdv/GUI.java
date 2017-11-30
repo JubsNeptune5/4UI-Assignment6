@@ -12,11 +12,23 @@ import java.awt.image.BufferedImage;
  */
 public class GUI extends javax.swing.JFrame {
 
+    private MainGame game;
+    
+    
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        game = new MainGame();
+        
+    }
+    
+    public GUI(MainGame game) {
+        initComponents();
+        this.game = game;
+        
+//        game.
     }
 
     /**
@@ -75,20 +87,20 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(rightButton))
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftButton)
                     .addComponent(moveButton)
@@ -101,7 +113,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
         
-        BufferedImage t = imageHelper.loadImage("info.txt");
+        BufferedImage t = imageHelper.loadImage("src//images//"+ "IMG_0045.JPG");
         
         jImage1.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed

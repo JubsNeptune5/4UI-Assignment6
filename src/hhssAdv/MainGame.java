@@ -15,10 +15,21 @@ import java.util.Scanner;
  */
 public class MainGame {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    GUI gui;
+    //create variables for the 'player' to 
+    int ploc = 0;
+    int pSce = 0;
+    //create the array of locations:
+    //create a length variable to define how long the array is 100
+    int length = 100;
+    //create an empty array of locations, that is as long as the defined length
+    Location[] locations = new Location[length];
+
+    public MainGame() {
+        //create a new Gui, that passes in this game to use
+
+        gui = new GUI(this);
+
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -41,21 +52,17 @@ public class MainGame {
         Scanner in = new Scanner(file);
         System.out.println("Thisfar");
 
-        //create a length variable to define how long the array is 100
-        int length = 100;
-        //create an empty array of locations, that is as long as the defined length
-        Location[] locations = new Location[length];
         //start to fill the location array with locations, and these locations with scenes
         for (int l = 0; l < length; l++) {
-            
-            System.out.println("Array Position "+ l);
+
+            System.out.println("Array Position " + l);
             //create/name a location at this spot
             System.out.println("Thisfar");
             String name = in.nextLine();
             System.out.println("name: " + name);
             locations[l] = new Location();
             locations[l].setName(name);
-            
+
             //using a for loop move through the scene lines
             for (int s = 0; s < 3; s++) {
                 //get this line
@@ -71,10 +78,10 @@ public class MainGame {
                     char dir = sceneLineParts[0].charAt(0);
                     String pic = sceneLineParts[1];
                     //check to see if the next part of the sceneLineParts is true
-                    if(sceneLineParts[2] == "true"){
+                    if (sceneLineParts[2] == "true") {
                         //it is true, so create isFrontBlocked equal to true
                         boolean isFrontBlocked = true;
-                    }else{
+                    } else {
                         //so we know that it is false, so set it equal to false
                         boolean isFrontBlocked = false;
                         //and now we know that the newDir, and newLoc are existent, set them too:
@@ -90,5 +97,22 @@ public class MainGame {
             System.out.println(locations[i]);
         }
     }
-}
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        MainGame game = new MainGame();
+
+        //getters for the information inside of the arrays
+    }
+    
+    
+    public Location getLoc() {
+        return locations[ploc];
+    }
+
+    public void setLoc(int loc) {
+        this.pLoc = loc;
+    }
+}
