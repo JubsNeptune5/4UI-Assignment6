@@ -38,20 +38,16 @@ public class MainGame {
             System.out.println(url);
             // creating the file reader
             file = new FileReader(url.getFile());
-            System.out.println("success!");
         } catch (Exception e) {
             //handle any errors
             e.printStackTrace();
             //exit the program
             System.exit(0);
-            System.out.println("fail");
         }
         //use a Scanner with the file
         Scanner in = new Scanner(file);
-        System.out.println("Thisfar");
-
         //start to fill the location array with locations, and these locations with scenes
-        for (int l = 0; l < length; l++) {
+        for (int l = 0; in.hasNext(); l++) {
             //create/name a location at this spot
             String name = in.nextLine();
             locations[l] = new Location();
@@ -68,6 +64,7 @@ public class MainGame {
                     //now only add the direction to the scene
                     locations[l].getScene(s).setDir(sceneLine.charAt(0));
                     //and break the scene loop
+                    System.out.println("success");
                     break;
                     //now check to see that this is not a location line (characterized by its second character not being a space
                 } else if (sceneLine.charAt(1) != ' ') {
@@ -81,14 +78,15 @@ public class MainGame {
                     locations[l].getScene(s).setDir(sceneLineParts[0].charAt(0));
                     locations[l].getScene(s).setPic(sceneLineParts[1]);
                     //check to see if the next part of the sceneLineParts is true
-                    if (sceneLineParts[2] == "true") {
+                    System.out.println(sceneLineParts[2].substring(0, 4));
+                    //PROBLEM HERE
+                    if (sceneLineParts[2].substring(0, 4).equals("true")) {
                         //it is true, so set isFrontBlocked equal to true
                         locations[l].getScene(s).setIsFrontBlocked(true);
                     } else {
                         //so we know that it is false, so set it equal to false
                         locations[l].getScene(s).setIsFrontBlocked(false);
-                        //and now we know that the newDir, and newLoc are existent, set them too:
-                        System.out.println(sceneLineParts[3]);
+                        //and now we know that the newDir, and newLoc are existent, set them too
                         locations[l].getScene(s).setNewLoc(sceneLineParts[3]);
                         locations[l].getScene(s).setNewDir(sceneLineParts[4].charAt(0));
                     }
