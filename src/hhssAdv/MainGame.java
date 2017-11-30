@@ -16,9 +16,9 @@ import java.util.Scanner;
 public class MainGame {
 
     GUI gui;
-    //create variables for the 'player' to 
-    int ploc = 0;
-    int pSce = 0;
+    //create variables for the 'player' to access the specific location and scenes
+    public int pLoc = 0;
+    public int pSce = 0;
     //create the array of locations:
     //create a length variable to define how long the array is 100
     int length = 100;
@@ -27,9 +27,7 @@ public class MainGame {
 
     public MainGame() {
         //create a new Gui, that passes in this game to use
-
         gui = new GUI(this);
-
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -54,47 +52,48 @@ public class MainGame {
 
         //start to fill the location array with locations, and these locations with scenes
         for (int l = 0; l < length; l++) {
-
-            System.out.println("Array Position " + l);
             //create/name a location at this spot
-            System.out.println("Thisfar");
             String name = in.nextLine();
-            System.out.println("name: " + name);
             locations[l] = new Location();
             locations[l].setName(name);
-
             //using a for loop move through the scene lines
             for (int s = 0; s < 3; s++) {
+                //create an empty scene at this spot
+                Scene scene = new Scene();
+                locations[l].setScene(s, scene);
                 //get this line
                 String sceneLine = in.nextLine();
-                //check to see that this is not a location line (characterized by its second character not being a space
-                if (sceneLine.charAt(1) != ' ') {
+                //first check if this line is the special case at the beginning of the document
+                if (sceneLine.length() == 1) {
+                    //now only add the direction to the scene
+                    locations[l].getScene(s).setDir(sceneLine.charAt(0));
+                    //and break the scene loop
+                    break;
+                    //now check to see that this is not a location line (characterized by its second character not being a space
+                } else if (sceneLine.charAt(1) != ' ') {
                     //it is so break out of the for loop
                     break;
+                    //new we know that this is a regular scene line
                 } else {
                     //split the sceneLine string by its spaces
                     String[] sceneLineParts = sceneLine.split(" ");
-                    //create the scene variables using specific parts of the sceneLineParts
-                    char dir = sceneLineParts[0].charAt(0);
-                    String pic = sceneLineParts[1];
+                    //set the specific parts of the scene equal to the array parts
+                    locations[l].getScene(s).setDir(sceneLineParts[0].charAt(0));
+                    locations[l].getScene(s).setPic(sceneLineParts[1]);
                     //check to see if the next part of the sceneLineParts is true
                     if (sceneLineParts[2] == "true") {
-                        //it is true, so create isFrontBlocked equal to true
-                        boolean isFrontBlocked = true;
+                        //it is true, so set isFrontBlocked equal to true
+                        locations[l].getScene(s).setIsFrontBlocked(true);
                     } else {
                         //so we know that it is false, so set it equal to false
-                        boolean isFrontBlocked = false;
+                        locations[l].getScene(s).setIsFrontBlocked(false);
                         //and now we know that the newDir, and newLoc are existent, set them too:
-                        char newDir = sceneLineParts[3].charAt(0);
-                        String newLoc = sceneLineParts[4];
+                        System.out.println(sceneLineParts[3]);
+                        locations[l].getScene(s).setNewLoc(sceneLineParts[3]);
+                        locations[l].getScene(s).setNewDir(sceneLineParts[4].charAt(0));
                     }
                 }
             }
-        }
-
-        //print out the rolodex
-        for (int i = 0; i < length; i++) {
-            System.out.println(locations[i]);
         }
     }
 
@@ -102,14 +101,13 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //create a new main game
         MainGame game = new MainGame();
-
-        //getters for the information inside of the arrays
     }
-    
-    
+
+    //getters for the information inside of the arrays
     public Location getLoc() {
-        return locations[ploc];
+        return locations[pLoc];
     }
 
     public void setLoc(int loc) {
