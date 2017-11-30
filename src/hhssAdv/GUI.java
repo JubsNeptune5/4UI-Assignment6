@@ -101,7 +101,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
         
-        BufferedImage t = imageHelper.loadImage("info.txt");
+        BufferedImage t = imageHelper.loadImage("src//images//"+"IMG_0045.JPG");
         
         jImage1.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed
@@ -143,6 +143,7 @@ public class GUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+           
             public void run() {
                 new GUI().setVisible(true);
             }
