@@ -103,7 +103,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
         
-        BufferedImage t =loadImage("IMG_0045.JPG");
+        BufferedImage t =loadImage("src//hhssAdv//images//"+"IMG_0045.JPG");
         
         image.setImage(t);
     }//GEN-LAST:event_leftButtonActionPerformed
@@ -157,7 +157,7 @@ public class GUI extends javax.swing.JFrame {
         BufferedImage pic = null;
         try{
             //Read image from file if there is any
-            pic = ImageIO.read(new File("image//"+name));
+            pic = ImageIO.read(new File(name));
         }catch(Exception e){
             e.printStackTrace();
             System.exit(0);
