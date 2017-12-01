@@ -7,54 +7,63 @@ package hhssAdv;
 
 /**
  *
- * @author ja2slate
+ * @author slatz8075
  */
 public class Scene {
 
     private char dir;
     private String pic;
     private boolean isFrontBlocked;
-    private char newDir;
     private String newLoc;
-    
-    public void setDir(char dir){
+    private char newDir;
+/*
+    //initilize the scene with meaningless variables/ themselves
+    public Scene(){
         this.dir = dir;
+        this.pic = pic;
+        this.isFrontBlocked = isFrontBlocked;
+        this.newLoc = newLoc;
+        this.newDir = newDir;
     }
+*/
     
     public char getDir(){
         return this.dir;
     }
     
-    public void setPic(String Pic){
-        this.pic = pic;
+    public void setDir(char dir){
+        this.dir = dir;
     }
     
     public String getPic(){
         return this.pic;
     }
     
-    public void setIsFrontBlocked(Boolean isFrontBlocked){
-        this.isFrontBlocked = isFrontBlocked;
+    public void setPic(String Pic){
+        this.pic = pic;
     }
     
     public boolean getIsFrontBlocked(){
         return isFrontBlocked;
     }
     
-    public void setNewDir(char newDir){
-        this.newDir = newDir;
-    }
-    
-    public char getNewDir(){
-        return this.newDir;
-    }
-    
-    public void setNewLoc(String newLoc){
-        this.newLoc = newLoc;
+    public void setIsFrontBlocked(boolean isFrontBlocked){
+        this.isFrontBlocked = isFrontBlocked;
     }
     
     public String getNewLoc(){
         return this.newLoc;
     }
     
+    public void setNewLoc(String newLoc){
+        this.newLoc = newLoc;
+    }
+    
+    public char getNewDir(){
+        return this.newDir;
+    }
+    
+    public void setNewDir(char newDir){
+        this.newDir = newDir;
+    }
 }
