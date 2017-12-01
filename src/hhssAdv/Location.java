@@ -29,15 +29,4 @@ public class Location {
     public Scene getScene(int index){
         return scenes[index];
     }
-    /*
-    @Override
-    public String toString(){
-        String format = this.loc + "\n";
-        format += "direction: " + this.dir + "\n";
-        format += "Image: " + this.image + "\n";
-        format += "Image: " + this.image + "\n";
-        
-        return format;
-    }
-*/
 }
