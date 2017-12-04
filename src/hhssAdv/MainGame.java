@@ -27,20 +27,22 @@ public class MainGame {
     int length = 100;
     //create an empty array of locations, that is as long as the defined length
     Location[] locations = new Location[length];
+    //Create array of psoitions with in the info text file
+    String[] loc = new String[length];
 
     public MainGame() {
         //create a new Gui, that passes in this game to use
-        gui = new GUI(this);
+      //  gui = new GUI(this);
         //INITILIZATION
         //create a blank file
         FileReader file = null;
         //try to find the info file
         try {
             //create a url for the location of the info file
-            URL url = MainGame.class.getResource("info.txt");
+            URL url = MainGame.class.getResource("src//hhssAdv//info.txt");
             System.out.println(url);
             // creating the file reader
-            file = new FileReader(url.getFile());
+            file = new FileReader("src//hhssAdv//info.txt");
         } catch (Exception e) {
             //handle any errors
             e.printStackTrace();
@@ -98,6 +100,7 @@ public class MainGame {
             //find the position in the location array that is equal to the startLoc
             for (int locPos = 0; locPos < locations.length; locPos++) {
                 //check to see if this location's name is the starting name
+                System.out.println(locPos);
                 if (locations[locPos].getName().equals(startLoc)) {
                     //it is so set the player's inital position equal to this one
                     pLoc = locPos;
@@ -112,7 +115,7 @@ public class MainGame {
                 pSce = 1;
             } else if (startDir == 'S') {
                 pSce = 2;
-            } else{
+            } else {
                 pSce = 3;
             }
         }
@@ -139,5 +142,66 @@ public class MainGame {
     //setting the scene that the player is observing
     public void setSce(int sce) {
         this.pSce = sce;
+    }
+
+    public void turnLeft() {
+        //Check if the direction is equal to North 
+        if (getLoc().getScene(pSce).getDir() == 'N') {
+            //Set the scene to be west
+            pSce = 3;
+        } else if (getLoc().getScene(pSce).getDir() == 'E') {
+            //Set the scene to be north
+            pSce = 0;
+        } else if (getLoc().getScene(pSce).getDir() == 'S') {
+            //Set the scene to be one directyion left of the current direction
+            pSce = 1;
+        } else {
+            //Set the scene to be one directyion left of the current direction
+            pSce = 2;
+        }
+    }
+
+    public void turnRight() {
+        //Check if the direction is equal to North 
+        if (getLoc().getScene(pSce).getDir() == 'N') {
+            //Set the scene to be east
+            pSce = 1;
+        } else if (getLoc().getScene(pSce).getDir() == 'E') {
+            //Set the scene to be south
+            pSce = 2;
+        } else if (getLoc().getScene(pSce).getDir() == 'S') {
+            //Set the scene to be west
+            pSce = 3;
+        } else {
+            //Set the scene to be north
+            pSce = 0;
+        }
+    }
+
+    public void move() {
+        //make sure that we can move
+        if (getLoc().getScene(pSce).getIsFrontBlocked() == false) {
+            //we can so get the new loc and new dir 
+            char pNewDir = getLoc().getScene(pSce).getNewDir();
+            String newLoc = getLoc().getScene(pSce).getNewLoc();
+            //Check if the direction is equal to North 
+            if (pNewDir == 'N') {
+                //Set the players direction to north
+                pSce = 0;
+                //check if its east
+            } else if (pNewDir == 'E') {
+                //Set the players direction to east
+                pSce = 1;
+                //check if its south
+            } else if (pNewDir == 'S') {
+                //Set the players direction to south
+                pSce = 2;
+                //it is not all of these make it west
+            } else {
+                //Set the players direction to west
+                pSce = 3;
+            }
+
+        }
     }
 }
