@@ -50,7 +50,6 @@ public class MainGame {
         //use a Scanner with the file
         Scanner in = new Scanner(file);
         //start to fill the location array with locations, and these locations with scenes
-
         //but first get the starting information
         //it is so store this location as the starting location
         startLoc = in.nextLine();
@@ -64,7 +63,7 @@ public class MainGame {
             locations[l] = new Location();
             locations[l].setName(name);
             //using a for loop move through the scene lines
-            for (int s = 0; s < 3; s++) {
+            for (int s = 0; s < 4; s++) {
                 //create an empty scene at this spot
                 Scene scene = new Scene();
                 locations[l].setScene(s, scene);
@@ -93,7 +92,8 @@ public class MainGame {
                 }
             }
         }
-
+        System.out.println("done for loop");
+        
         //find the position in the location array that is equal to the startLoc
         for (int locPos = 0; locPos < locations.length; locPos++) {
             System.out.println("location: " + locations[locPos]);
