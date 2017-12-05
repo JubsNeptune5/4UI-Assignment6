@@ -16,16 +16,11 @@ public class Scene {
     private boolean isFrontBlocked;
     private String newLoc;
     private char newDir;
-/*
+    
     //initilize the scene with meaningless variables/ themselves
     public Scene(){
-        this.dir = dir;
-        this.pic = pic;
-        this.isFrontBlocked = isFrontBlocked;
-        this.newLoc = newLoc;
-        this.newDir = newDir;
+
     }
-*/
     
     public char getDir(){
         return this.dir;
@@ -39,7 +34,7 @@ public class Scene {
         return this.pic;
     }
     
-    public void setPic(String Pic){
+    public void setPic(String pic){
         this.pic = pic;
     }
     
