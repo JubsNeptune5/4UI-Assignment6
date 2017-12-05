@@ -39,7 +39,7 @@ public class Scene {
         return this.pic;
     }
     
-    public void setPic(String Pic){
+    public void setPic(String pic){
         this.pic = pic;
     }
     
