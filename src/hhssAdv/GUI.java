@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private MainGame game;
+    private MainGame controller;
     
     
     /**
@@ -20,15 +20,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        game = new MainGame();
+        controller =  new MainGame();
         
-    }
-    
-    public GUI(MainGame game) {
-        initComponents();
-        this.game = game;
-        
-//        game.
     }
 
     /**
@@ -112,9 +105,13 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
+        //Call the turn left method in the main game
+        controller.turnLeft();
+        //Create a String to store the file name of the picture
+        String pic = controller.getLoc().getScene(controller.pSce).getPic();
         
 
-        BufferedImage t = imageHelper.loadImage("src//images//"+ "IMG_0045.JPG");
+        BufferedImage t = imageHelper.loadImage("src//images//"+ pic);
 
         
         jImage1.setImage(t);

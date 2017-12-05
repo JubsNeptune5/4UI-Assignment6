@@ -29,8 +29,6 @@ public class MainGame {
     Location[] locations = new Location[length];
 
     public MainGame() {
-        //create a new Gui, that passes in this game to use
-        gui = new GUI(this);
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -139,6 +137,11 @@ public class MainGame {
     //setting the scene that the player is observing
     public void setSce(int sce) {
         this.pSce = sce;
+    }
+    
+    //Getter to rectrieve the psce variable to use in the GUI
+    public int getpSce(int pSce){
+        return this.pSce;
     }
 
     public void turnLeft() {
