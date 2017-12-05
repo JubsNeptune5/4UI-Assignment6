@@ -29,8 +29,6 @@ public class MainGame {
     Location[] locations = new Location[length];
 
     public MainGame() {
-        //create a new Gui, that passes in this game to use
-        gui = new GUI(this);
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -72,9 +70,11 @@ public class MainGame {
                 //split the sceneLine string by its spaces
                 String[] sceneLineParts = sceneLine.split(" ");
                 //set the specific parts of the scene equal to the array parts
+
                 scene.setDir(sceneLineParts[0].charAt(0));
                 scene.setPic(sceneLineParts[1]);
                 //check to see if the next part of the sceneLineParts is true
+
                 if (sceneLineParts[2].substring(0, 4).equals("true")) {
                     //it is true, so set isFrontBlocked equal to true
                     locations[l].getScene(s).setIsFrontBlocked(true);
@@ -94,7 +94,6 @@ public class MainGame {
             System.out.println("location: " + locations[locPos]);
             //check to see if this location's name is the starting name
             System.out.println("locPos: " + locPos);
-            //System.out.println("picture: " + locations[locPos].getScene(pSce).getPic());
 
             if (locations[locPos].getName().equals(startLoc)) {
                 //it is so set the player's inital position equal to this one
@@ -137,6 +136,12 @@ public class MainGame {
     public void setSce(int sce) {
         this.pSce = sce;
     }
+   
+    //Getter to rectrieve the psce variable to use in the GUI
+    public int getpSce(int pSce){
+        return this.pSce;
+    }
+
 
     public void turnLeft() {
         //Check if the direction is equal to North 
