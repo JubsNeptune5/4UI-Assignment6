@@ -36,7 +36,7 @@ public class MainGame {
         try {
             //create a url for the location of the info file
             URL url = MainGame.class.getResource("src//hhssAdv//info.txt");
-          
+
             // creating the file reader
             file = new FileReader("src//hhssAdv//info.txt");
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class MainGame {
             }
         }
         System.out.println("done for loop");
-        
+
         //find the position in the location array that is equal to the startLoc
         for (int locPos = 0; locPos < locations.length; locPos++) {
             System.out.println("location: " + locations[locPos]);
@@ -136,12 +136,11 @@ public class MainGame {
     public void setSce(int sce) {
         this.pSce = sce;
     }
-   
+
     //Getter to rectrieve the psce variable to use in the GUI
-    public int getpSce(int pSce){
+    public int getpSce(int pSce) {
         return this.pSce;
     }
-
 
     public void turnLeft() {
         //Check if the direction is equal to North 
@@ -183,6 +182,7 @@ public class MainGame {
             //we can so get the new loc and new dir 
             char pNewDir = getLoc().getScene(pSce).getNewDir();
             String newLoc = getLoc().getScene(pSce).getNewLoc();
+            System.out.println("newLoc: " + newLoc);
             //Check if the direction is equal to North 
             if (pNewDir == 'N') {
                 //Set the players direction to north
@@ -201,6 +201,12 @@ public class MainGame {
                 pSce = 3;
             }
 
+            for (int i = 0; i < locations.length && locations[i] != null; i++) {
+              
+                if (locations[i].getName().equals(newLoc)) {
+                    setLoc(i);
+                }
+            }
         }
     }
 }
