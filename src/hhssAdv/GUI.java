@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private MainGame game;
+    private MainGame controller;
     
     
     /**
@@ -20,15 +20,9 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
-        game = new MainGame();
+        controller =  new MainGame();
         
-    }
-    
-    public GUI(MainGame game) {
-        initComponents();
-        this.game = game;
         
-//        game.
     }
 
     /**
@@ -81,25 +75,28 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(leftButton)
-                .addGap(58, 58, 58)
-                .addComponent(moveButton)
-                .addGap(47, 47, 47)
-                .addComponent(rightButton))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(leftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(moveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(rightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftButton)
@@ -112,20 +109,24 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
-        
-
-        BufferedImage t = imageHelper.loadImage("src//images//"+ "IMG_0045.JPG");
-
-        
-        jImage1.setImage(t);
+        //Call the turn left method in the main game
+        controller.turnLeft();
+        //Print out the image using the method
+        printImage();
     }//GEN-LAST:event_leftButtonActionPerformed
 
     private void moveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveButtonActionPerformed
-        // TODO add your handling code here:
+        //Call the move method from the MainGame 
+        controller.move();
+        //Print out the image using the method
+        printImage();
     }//GEN-LAST:event_moveButtonActionPerformed
 
     private void rightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightButtonActionPerformed
-        // TODO add your handling code here:
+        //Call the turn method from the MainGame
+        controller.turnRight();
+        //Print out the image using the method
+        printImage();
     }//GEN-LAST:event_rightButtonActionPerformed
 
     /**
@@ -162,6 +163,18 @@ public class GUI extends javax.swing.JFrame {
                 new GUI().setVisible(true);
             }
         });
+    }
+    /**
+     * Method to print out the images to the GUI
+     */
+    public void printImage(){
+        //Create a String to store the file name of the picture
+        String pic = controller.getLoc().getScene(controller.pSce).getPic();
+        System.out.println("src//images//" + pic);
+        //Create a bufferedImage to print out to the GUI
+        BufferedImage t = imageHelper.loadImage("src//images//" + pic);
+
+        jImage1.setImage(t);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private hhssAdv.JImage jImage1;
