@@ -22,7 +22,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         controller =  new MainGame();
         
-        
+        printImage();
     }
 
     /**

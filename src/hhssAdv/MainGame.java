@@ -7,6 +7,7 @@ package hhssAdv;
 
 import java.io.FileReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -26,9 +27,10 @@ public class MainGame {
     //create a length variable to define how long the array is 100
     int length = 100;
     //create an empty array of locations, that is as long as the defined length
-    Location[] locations = new Location[length];
+    ArrayList<Location> locations = new ArrayList<>();
 
     public MainGame() {
+        
         //INITILIZATION
         //create a blank file
         FileReader file = null;
@@ -45,6 +47,7 @@ public class MainGame {
             //exit the program
             System.exit(0);
         }
+        
         //use a Scanner with the file
         Scanner in = new Scanner(file);
         //start to fill the location array with locations, and these locations with scenes
@@ -58,13 +61,13 @@ public class MainGame {
         for (int l = 0; in.hasNext(); l++) {
             //create/name a location at this spot
             String name = in.nextLine();
-            locations[l] = new Location();
-            locations[l].setName(name);
+            locations.add(new Location());
+            locations.get(l).setName(name);
             //using a for loop move through the scene lines
             for (int s = 0; s < 4; s++) {
                 //create an empty scene at this spot
                 Scene scene = new Scene();
-                locations[l].setScene(s, scene);
+                locations.get(l).setScene(s, scene);
                 //get this line
                 String sceneLine = in.nextLine();
                 //split the sceneLine string by its spaces
@@ -76,25 +79,24 @@ public class MainGame {
 
                 if (sceneLineParts[2].substring(0, 4).equals("true")) {
                     //it is true, so set isFrontBlocked equal to true
-                    locations[l].getScene(s).setIsFrontBlocked(true);
+                    locations.get(l).getScene(s).setIsFrontBlocked(true);
                 } else {
                     //so we know that it is false, so set it equal to false
-                    locations[l].getScene(s).setIsFrontBlocked(false);
+                    locations.get(l).getScene(s).setIsFrontBlocked(false);
                     //and now we know that the newDir, and newLoc are existent, set them too
-                    locations[l].getScene(s).setNewLoc(sceneLineParts[3]);
-                    locations[l].getScene(s).setNewDir(sceneLineParts[4].charAt(0));
+                    locations.get(l).getScene(s).setNewLoc(sceneLineParts[3]);
+                    locations.get(l).getScene(s).setNewDir(sceneLineParts[4].charAt(0));
                 }
             }
         }
         System.out.println("done for loop");
 
         //find the position in the location array that is equal to the startLoc
-        for (int locPos = 0; locPos < locations.length; locPos++) {
-            System.out.println("location: " + locations[locPos]);
+        for (int locPos = 0; locPos < locations.size(); locPos++) {
             //check to see if this location's name is the starting name
             System.out.println("locPos: " + locPos);
 
-            if (locations[locPos].getName().equals(startLoc)) {
+            if (locations.get(locPos).getName().equals(startLoc)) {
                 //it is so set the player's inital position equal to this one
                 pLoc = locPos;
                 //and break out of the for loop
@@ -123,7 +125,7 @@ public class MainGame {
 
     //getters for the information inside of the arrays
     public Location getLoc() {
-        return locations[pLoc];
+        return locations.get(pLoc);
     }
 
     //setting the location in the location array that the player is at
@@ -200,9 +202,9 @@ public class MainGame {
                 pSce = 3;
             }
 
-            for (int i = 0; i < locations.length && locations[i] != null; i++) {
+            for (int i = 0; i < locations.size(); i++) {
               
-                if (locations[i].getName().equals(newLoc)) {
+                if (locations.get(i).getName().equals(newLoc)) {
                     setLoc(i);
                 }
             }
