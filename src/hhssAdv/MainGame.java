@@ -73,6 +73,7 @@ public class MainGame {
                 scene.setDir(sceneLineParts[0].charAt(0));
                 scene.setPic(sceneLineParts[1]);
                 //check to see if the next part of the sceneLineParts is true
+
                 if (sceneLineParts[2].substring(0, 4).equals("true")) {
                     //it is true, so set isFrontBlocked equal to true
                     locations[l].getScene(s).setIsFrontBlocked(true);
