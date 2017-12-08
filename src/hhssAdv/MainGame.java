@@ -16,17 +16,13 @@ import java.util.Scanner;
  */
 public class MainGame {
 
-    GUI gui;
     //create variables for the 'player' to access the specific location and scenes
-    public int pLoc = 0;
-    public int pSce = 0;
+    private int pLoc = 0;
+    private int pSce = 0;
     //create the starting info variables
-    public String startLoc;
-    public char startDir;
-    //create the array of locations:
-    //create a length variable to define how long the array is 100
-    int length = 100;
-    //create an empty array of locations, that is as long as the defined length
+    private String startLoc;
+    private char startDir;
+    //create a resizable array for the locations
     ArrayList<Location> locations = new ArrayList<>();
 
     public MainGame() {
@@ -89,13 +85,9 @@ public class MainGame {
                 }
             }
         }
-        System.out.println("done for loop");
-
         //find the position in the location array that is equal to the startLoc
         for (int locPos = 0; locPos < locations.size(); locPos++) {
             //check to see if this location's name is the starting name
-            System.out.println("locPos: " + locPos);
-
             if (locations.get(locPos).getName().equals(startLoc)) {
                 //it is so set the player's inital position equal to this one
                 pLoc = locPos;
@@ -139,7 +131,7 @@ public class MainGame {
     }
 
     //Getter to rectrieve the psce variable to use in the GUI
-    public int getpSce(int pSce) {
+    public int getpSce() {
         return this.pSce;
     }
 
@@ -202,9 +194,11 @@ public class MainGame {
                 pSce = 3;
             }
 
+            //Go through the positions in the array
             for (int i = 0; i < locations.size(); i++) {
-              
+                //Find the position i the array where the new location is located
                 if (locations.get(i).getName().equals(newLoc)) {
+                    //Set the location as the new location
                     setLoc(i);
                 }
             }
