@@ -169,7 +169,7 @@ public class GUI extends javax.swing.JFrame {
      */
     public void printImage(){
         //Create a String to store the file name of the picture
-        String pic = controller.getLoc().getScene(controller.pSce).getPic();
+        String pic = controller.getLoc().getScene(controller.getpSce()).getPic();
         System.out.println("src//images//" + pic);
         //Create a bufferedImage to print out to the GUI
         BufferedImage t = imageHelper.loadImage("src//images//" + pic);
