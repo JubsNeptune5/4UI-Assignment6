@@ -17,11 +17,12 @@ public class Scene {
     private String newLoc;
     private char newDir;
     
-    //initilize the scene with meaningless variables/ themselves
+    //initilize the scene with nothingness, just so it may be reffered to
     public Scene(){
 
     }
     
+    //getters and setters for all variables
     public char getDir(){
         return this.dir;
     }
